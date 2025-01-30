@@ -10,6 +10,8 @@ flask-cors = "*"
 flask-migrate = "*"
 flask-restful = "*"
 flask-jwt-extended = "*"
+flask-bcrypt = "*"
+sqlalchemy-serializer = "*"
 
 [dev-packages]
 
