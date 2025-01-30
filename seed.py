@@ -23,11 +23,11 @@ with app.app_context():
     user_one = User(first_name='Nikita', last_name='Amani', email='nikitamani@gmail.com',
                     password=generate_password_hash('password123').decode('utf-8'), role='vendor')
 
-    user_two = User(first_name='Nikita', last_name='Amani', email='nikitamani@gmail.com',
-                    password=generate_password_hash('password123').decode('utf-8'), role='vendor')
+    user_two = User(first_name='Wendo', last_name='Amani', email='wendoamani@gmail.com',
+                    password=generate_password_hash('password123').decode('utf-8'), role='buyer')
 
-    db.session.add(user_two, user_one)
-
+    db.session.add(user_one)
+    db.session.add(user_two)
     db.session.commit()
 
     print('Two new users added successfully')
