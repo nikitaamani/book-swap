@@ -1,0 +1,23 @@
+{
+  "name": "bookswap-client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0",
+    "lucide-react": "^0.328.0"
+  },
+  "devDependencies": {
+    "vite": "^4.4.0",
+    "eslint": "^8.47.0"
+  }
+}
+
