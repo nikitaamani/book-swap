@@ -39,6 +39,7 @@ class User(db.Model, SerializerMixin):
     password = db.Column(db.String(255), nullable=False)
     role = db.Column(db.String(50), nullable=False, )
 
+    serializer_rules = ('-password',)
     # Defining relationships
     book_listed = db.relationship(
         'BookList', back_populates='user', cascade='all , delete-orphan')
@@ -112,6 +113,9 @@ class Book(db.Model, SerializerMixin):
     number_in_stock = db.Column(db.Integer, nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey(
         'categories.id'), nullable=True)
+    
+    #Adding serializer rules to avoid recursion depth
+    serialize_only =('title','author','description','image','available','number_in_stock','category_id')
 
     # Defining relationships
     listings = db.relationship(
@@ -132,6 +136,8 @@ class Wishlist(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     book_id = db.Column(db.Integer, db.ForeignKey('books.id'), nullable=False)
+    
+    serialize_only=('user_id','book_id',)
 
     # Defining the relationship
     user = db.relationship('User', back_populates='wishlist')
@@ -154,6 +160,9 @@ class BookList(db.Model, SerializerMixin):
     listing_type = db.Column(db.String(20), nullable=False)
     status = db.Column(db.String, default='available')
 
+    #Serializer
+    serialize_only = ('user_id','book_id','price','rental_fee','listing_type','status')
+    
     # Relationships
     user = db.relationship('User', back_populates='book_listed')
     book = db.relationship('Book', back_populates='listings')
@@ -190,6 +199,10 @@ class Review(db.Model, SerializerMixin):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     book_id = db.Column(db.Integer, db.ForeignKey('books.id'), nullable=False)
     rating = db.Column(db.Integer, nullable=False)
+    
+    
+    #Serializer rules
+    serialize_only= ('user_id','book_id','rating')
 
     # Defining the relationships
     book = db.relationship('Book', back_populates='reviews')
