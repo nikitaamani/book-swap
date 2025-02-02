@@ -1,0 +1,72 @@
+/* Rent.css */
+.rent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .rent-content {
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .rent-intro {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+  
+  .book-card {
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .book-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .book-title {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .rent-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .rent-input {
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 150px;
+  }
+  
+  .rent-button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .rent-button:hover {
+    background-color: #218838;
+  }
+  

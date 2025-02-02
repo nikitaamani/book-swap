@@ -1,0 +1,378 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #bdc3c7;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.contact-page-container {
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.contact-page-container h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 50px;
+    text-align: center;
+    letter-spacing: -0.03em;
+}
+
+.contact-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-gap: 50px;
+    width: 90%;
+    max-width: 1800px;
+}
+
+.contact-sections > div {
+    background-color: white;
+    padding: 50px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.contact-sections > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.contact-sections h2, .contact-sections h3 {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+/* Live Chat */
+.live-chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chat-window {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.user-message, .bot-message {
+    background-color: #fff;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border-radius: 28px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    max-width: 90%;
+    clear: both;
+}
+
+.user-message {
+    background-color: #e3f2fd;
+    float: right;
+}
+
+.bot-message {
+    float: left;
+}
+
+.chat-input {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    margin-right: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.chat-input input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input button:hover {
+    background-color: #2980b9;
+}
+
+/* Multi-step Form */
+form div {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* File Upload Form */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form p {
+    margin-top: 10px;
+    color: #333;
+    font-size: 14px;
+}
+
+/* FAQ Bot */
+.faq-bot-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.faq-bot-container h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.faq-bot-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.faq-bot-container button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.faq-bot-container button:hover {
+    background-color: #0056b3;
+}
+
+.chatbot-response p {
+    color: #333;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Appointment Scheduling */
+.appointment-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.appointment-container h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.appointment-container button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.appointment-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Map */
+.map-container {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    position: relative; /* For absolute positioning of elements within */
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block; /* Prevents small spacing issues */
+}
+
+/* Option 1: Simple overlay with a centered icon */
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent dark overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+.map-container:hover .map-overlay {
+    opacity: 1;
+}
+
+.map-overlay i { /* Style for the icon (e.g., a location marker) */
+    font-size: 3rem; /* Adjust icon size */
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.map-info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    transform: translateY(100%); 
+    transition: transform 0.3s ease;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.map-container:hover .map-info {
+    transform: translateY(0);
+}
+
+.map-info h3 {
+    margin-top: 0; 
+    color: var(--primary-color);
+}
+
+.map-info p {
+    margin-bottom: 0;
+}
+
+.map-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    pointer-events: none;
+}
+
+
+@media (max-width: 768px) {
+    .map-container {
+        height: 300px;
+    }
+
+    .map-overlay i {
+        font-size: 2rem;
+    }
+
+    .map-info {
+        padding: 15px;
+    }
+}
+
+/* Notification */
+.notification {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .contact-sections {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .contact-sections {
+        grid-template-columns: 1fr;
+    }
+}

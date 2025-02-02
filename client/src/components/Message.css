@@ -1,0 +1,649 @@
+Messages.css
+.messages-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .messages-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .message-item {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .message-item:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .selected {
+    background-color: #dfe6e9;
+  }
+  
+  .message-sender {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .message-preview {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .message-date {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 5px;
+  }
+  
+  .message-details {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+  }
+  
+  .message-details h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #2c3e50;
+  }
+  
+  .message-details p {
+    font-size: 14px;
+    color: #34495e;
+  }
+  
+  .message-details small {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #7f8c8d;
+  }
+  :root {
+    --primary-color: #6200ee;
+    --secondary-color: #3700b3;
+    --background-color: #121212;
+    --text-color: #fff;
+    --accent-color: #1e1e1e;
+  }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  header {
+    background-color: #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .search-upload-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    gap: 10px;
+  }
+  
+  #search-bar {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
+  #upload-button {
+    padding: 10px 20px;
+    background-color: #6200ee;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  main {
+    padding: 20px;
+    flex: 1;
+    overflow-y: scroll;
+  }
+  
+  .category-section {
+    display: block;
+      width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .book-card {
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 5px;
+    width: 130px;
+    height: auto;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+  }
+  
+  
+  
+  .book-card img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .book-card h3 {
+    font-size: 1rem;
+    margin: 10px 0 5px;
+  }
+  
+  .book-card p {
+    font-size: 0.9rem;
+    margin: 0 0 10px;
+  }
+  
+  .book-card button {
+    padding: 5px 10px;
+    background-color: #6200ee;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: auto;
+    margin-bottom: 7px;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 5px;
+  }
+  
+  #no-books-message {
+    display: none; /* Initially hidden */
+    font-size: 3em; /* Larger text */
+    text-align: center; /* Center text */
+    margin-top: 50px; /* Add some space at the top */
+    color: #fff; /* Optional: adjust color as needed */
+  }
+  
+  #upload-form-container,
+  #ask-now-form-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+    z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  
+  
+  #upload-form ,
+  #ask-now-form{
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 500px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-height: 90%;
+    overflow-y: auto;
+  }
+  
+  #upload-form h2,
+  #ask-now-form h2 {
+    margin-top: 0;
+    color: #fff;
+  }
+  
+  #upload-form label,
+  #ask-now-form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #bbb;
+  }
+  
+  #upload-form input[type="text"],
+  #upload-form input[type="tel"],
+  #upload-form input[type="email"],
+  #upload-form textarea,
+  #upload-form input[type="url"],
+  #ask-now-form input[type="text"],
+  #ask-now-form input[type="tel"],
+  #ask-now-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: #958989;
+    color: #000000;
+    margin-bottom: 10px;
+  }
+  
+  #upload-form textarea,
+  #ask-now-form textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  #upload-form button,
+  #ask-now-form button,
+  .popup-content button {
+    padding: 10px 20px;
+    background-color: #6200ee;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+  
+  #upload-form button:hover,
+  #ask-now-form button:hover {
+    background-color: #3700b3;
+  }
+  
+  #upload-form button[type="button"],
+  #ask-now-form button[type="button"] {
+    background-color: #444;
+  }
+  
+  #upload-form button[type="button"]:hover,
+  #ask-now-form button[type="button"]:hover {
+    background-color: #555;
+  }
+  
+  
+  form input,
+  form select,
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 12px;
+    border-radius: 5px;
+    background: #121212;
+    color: #fff;
+  }
+  
+  form button {
+    margin-top: 20px;
+  }
+  
+  
+  #loading {
+    display: none; /* Hide the loading screen by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #6200ee;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  #loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 19999;
+  }
+  
+  #loading-message {
+    color: #fff;
+    font-size: 1.5em;
+  }
+  
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
+    width: 60%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow-y: auto;
+    max-height: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  /* Hide scrollbar styles */
+  #upload-form-container::-webkit-scrollbar,
+  .popup-content::-webkit-scrollbar,
+  #upload-form::-webkit-scrollbar,
+  #ask-now-form-container::-webkit-scrollbar,
+  #ask-now-form::-webkit-scrollbar,
+  main::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  
+  #upload-form-container,
+  #upload-form,
+  main {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  
+  
+  
+  .book-detail-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start;
+  }
+  
+  .book-image {
+    flex: 0 0 30%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .book-image img {
+    height: auto;
+    max-height: 450px;
+    border-radius: 5px;
+  }
+  
+  .book-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #fff;
+  }
+  
+  .book-info h3 {
+    font-size: 2rem;
+    margin: 0 0 10px;
+  }
+  
+  .book-info p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  .book-info button {
+    padding: 10px 20px;
+    background-color: #6200ee;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+    align-self: flex-start;
+  }
+  
+  .book-info button:hover {
+    background-color: #3700b3;
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 600px) {
+    .book-detail-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .book-image, .book-info {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .book-info h3 {
+      font-size: 1.5rem;
+    }
+  
+    .book-info p {
+      font-size: 0.9rem;
+    }
+  
+    .book-info button {
+      font-size: 0.9rem;
+      width: 100%;
+    }
+  }
+  
+  .crop-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1100; /* Ensure this is higher than other elements */
+    background-color: #0a0707;
+    padding: 20px;
+    border: 1px solid #1e1e1e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #crop-image {
+    max-width: 100%;
+    max-height: 300px;
+    margin-bottom: 20px;
+  }
+  
+  #crop-button, #cancel-crop {
+    margin: 5px;
+    background-color: #3700b3;
+    border-radius: 5px;
+  }
+  
+  .contact-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-icon:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  .contact-icon i {
+    font-size: 1.5rem;
+  }
+  
+  .contact-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .contact-modal-content {
+    background: var(--accent-color);
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    color: var(--text-color);
+    position: relative;
+  }
+  
+  .contact-modal .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: var(--text-color);
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  
+  /* Media Query for Mobile */
+  @media screen and (max-width: 600px) {
+    .contact-icon {
+      bottom: 10px;
+      right: 10px;
+      padding: 12px;
+      font-size: 1.2rem;
+    }
+  
+    .contact-modal-content {
+      padding: 10px;
+      width: 90%;
+    }
+  
+    .contact-modal .close {
+      top: 5px;
+      right: 10px;
+      font-size: 20px;
+    }
+  }
+  
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    header {
+      padding: 10px; /* Adjust padding for smaller screens */
+    }
+  
+    .search-upload-container {
+      flex-direction: column; /* Arrange search and upload button vertically */
+    }
+  
+    #search-bar {
+      width: 100%; /* Make search bar full-width on mobile */
+    }
+  
+    #upload-button {
+      width: 100%; /* Make upload button full-width on mobile */
+    }
+  
+    .category-section, .language-section {
+      margin-bottom: 30px; /* Add spacing between category/language sections */
+    }
+  
+    .popup-content {
+      padding: 20px;
+      border-radius: 5px;
+      text-align: left;
+      width: 80%;
+      max-width: 600px;
+      margin: 0 auto;
+      overflow-y: auto;
+      max-height: 80%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    } 
+  
+    
+    .book-card h3 {
+      font-size: 0.9rem; /* Reduce title font size for mobile */
+    }
+  
+    .book-card p {
+      font-size: 0.8rem; /* Reduce author font size for mobile */
+    }
+  
+    .book-card button {
+      font-size: 0.8rem; /* Reduce button font size for mobile */
+    }
+  
+  }
