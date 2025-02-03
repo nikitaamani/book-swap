@@ -1,63 +1,48 @@
-# Main application set up
-import os
-from flask import Flask
-from flask_restful import Api
-from flask_migrate import Migrate
-from flask_jwt_extended import JWTManager
-from flask_bcrypt import Bcrypt
-from flask_cors import CORS
-from datetime import timedelta
+from flask import Flask, jsonify
+from config import Config
+from model import db , User, Book, Swap
+from routes.auth import auth_bp
+from routes.books import books_bp
+from routes.swaps import swaps_bp
 
 
-from resources.users import RegisterResource, LoginResource
-from resources.booklist import BookListResource
-from resources.review import ReviewResource
-from resources.category import CategoryResource
-from resources.wishlist import WishlistResource
-from resources.book import BooksStoreResource
-from models import db
+def create_app():
+    app = Flask(__name__)
+    app.config.from_object(Config)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+    
+    db.init_app(app)
 
-# The accesss token
-ACCESS_TOKEN = timedelta(hours=12)
+    # Register blueprints with distinct URL prefixes
+    app.register_blueprint(auth_bp, url_prefix='/auth')
+    app.register_blueprint(books_bp, url_prefix='/api/books')
+    app.register_blueprint(swaps_bp, url_prefix='/api/swaps')
 
-# Importing the db from the models
+    # Add a root route (no template)
+    @app.route('/')
+    def home():
+        return 'Welcome to the Book Swap Hub!'
 
-# Importing our endpoints
+    # Add error handlers (return JSON error messages instead)
+    @app.errorhandler(404)
+    def not_found_error(error):
+        return jsonify({'error': 'Page not found'}), 404
 
-# Initializing our flask
-app = Flask(__name__)
+    @app.errorhandler(500)
+    def internal_error(error):
+        db.session.rollback()
+        return jsonify({'error': 'Internal server error'}), 500
 
-api = Api(app)
+    @app.shell_context_processor
+    def make_shell_context():
+        from models import User, Book, Swap
+        return {'db': db, 'User': User, 'Book': Book, 'Swap': Swap}
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+    return app
 
-# Should be in the .env file
-app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY')
-app.config["JWT_ACCESS_TOKEN_EXPIRES"] = ACCESS_TOKEN
-
-db.init_app(app)
-# For cross-origin-resource
-CORS(app)
-
-# The migrate instance
-migrate = Migrate(app, db)
-
-# Bcrypt instance for hashing and storing the passords
-bcrpyt = Bcrypt(app)
-
-# For the JWT
-jwt = JWTManager(app)
-
-
-@app.route('/')
-def home():
-    return 'Hey from flask'
-
-
-api.add_resource(RegisterResource, '/register')
-api.add_resource(LoginResource, '/login')
-api.add_resource(BooksStoreResource, '/books', '/books/<int:id>')
-api.add_resource(WishlistResource, '/wishlists', '/wishlists/<int:id>')
-api.add_resource(CategoryResource, '/categories', '/categories/<int:id>')
-api.add_resource(ReviewResource, '/reviews', '/reviews/<int:id>')
-api.add_resource(BookListResource, '/booklists', '/booklists/<int:id>')
+if __name__ == '__main__':
+    app = create_app()
+    with app.app_context():
+        # Create all database tables
+        db.create_all()
+    app.run(debug=True)
