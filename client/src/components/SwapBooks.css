@@ -1,0 +1,121 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  /* Container Styling */
+  .swap-container {
+    padding: 2rem;
+    background-color: #e9ecef;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swap-content {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 1000px;
+    width: 100%;
+    padding: 2rem;
+  }
+  
+  /* Introduction Section Styling */
+  .swap-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .swap-intro h1 {
+    font-size: 2rem;
+    color: #343a40;
+    margin-bottom: 0.5rem;
+  }
+  
+  .swap-intro p {
+    font-size: 1.125rem;
+    color: #6c757d;
+  }
+  
+  /* Book Grid Section Styling */
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .book-card {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+  
+  .book-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .book-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .book-title {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    color: #343a40;
+  }
+  
+  /* Swap Form Section Styling */
+  .swap-form {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .swap-form h2 {
+    font-size: 1.5rem;
+    color: #343a40;
+    margin-bottom: 1rem;
+  }
+  
+  .swap-form p {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+  }
+  
+  .swap-input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #343a40;
+  }
+  
+  .swap-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+  }
+  
+  .swap-button:hover {
+    background-color: #218838;
+  }
+  

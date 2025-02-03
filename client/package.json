@@ -1,23 +1,44 @@
 {
-  "name": "bookswap-client",
+  "name": "book-swap-hub",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0",
-    "lucide-react": "^0.328.0"
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.4.2",
+    "@react-oauth/google": "^0.12.1",
+    "cra-template": "1.2.0",
+    "formik": "^2.4.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.29.0",
+    "react-scripts": "5.0.1",
+    "sweetalert2": "^11.15.10",
+    "yup": "^1.6.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "server": "json-server --watch db.json --port 5000"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "vite": "^4.4.0",
-    "eslint": "^8.47.0"
+    "json-server": "^1.0.0-beta.3"
   }
 }
-
